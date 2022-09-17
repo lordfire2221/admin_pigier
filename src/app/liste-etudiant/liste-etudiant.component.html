@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion filières</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerFiliere" class="btn btn-sm btn-primary">Ajouter Filière</a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Nom </th>
+                  <th>Prénom</th>
+                  <th>Filière </th> 
+                  <th>Date naissance</th>
+                  <th>niveau </th>
+                  <th>Email </th>
+                  <th>Numéro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let etudiant of datas">
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.nom_etudiant.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.prenom_etudiant.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.Filiere.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.date_naissance.stringValue}} </td>
+                  <td>Licence :{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.niv_universitaire.numberValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.email.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.num_etudiant.stringValue}} </td>
+
+                  <form action="" method="POST">
+                      <a routerLink="#">
+                          <i class="fas fa-edit fa-lg"></i>
+                      </a>
+                      @csrf
+                      @method('DELETE')
+                          <button type="submit"  class="ml-2" title="delete" style="border: none; background-color:transparent;">
+                              <i class="fas fa-trash fa-lg text-danger"></i>
+                          </button>
+  
+                      </form>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endsection
+  
