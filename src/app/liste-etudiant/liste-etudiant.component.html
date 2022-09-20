@@ -4,19 +4,14 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Gestion filières</h4>
+                          <h4 class="card-title">Gestion des Etudiants</h4>
                       </div>
                       <div class="col-4 text-right">
-                          <a routerLink="/registerFiliere" class="btn btn-sm btn-primary">Ajouter Filière</a>
+                          <a routerLink="/registerEtudiant" class="btn btn-sm btn-primary">Ajouter un étudiant</a>
                       </div>
                   </div>
               </div>
         <div class="card-body">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
           <div class="table-responsive">
             <table class="table tablesorter " id="">
               <thead class=" text-primary">
@@ -44,8 +39,6 @@
                       <a routerLink="#">
                           <i class="fas fa-edit fa-lg"></i>
                       </a>
-                      @csrf
-                      @method('DELETE')
                           <button type="submit"  class="ml-2" title="delete" style="border: none; background-color:transparent;">
                               <i class="fas fa-trash fa-lg text-danger"></i>
                           </button>
@@ -61,5 +54,4 @@
       </div>
     </div>
   </div>
-  @endsection
   

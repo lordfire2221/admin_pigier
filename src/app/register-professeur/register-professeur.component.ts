@@ -43,8 +43,8 @@ export class RegisterProfesseurComponent implements OnInit {
         const result = await this.afAuth
         .createUserWithEmailAndPassword(formValue.email, this.password)
         if(result){
-          this.firebaseService.createUser(this.registerForm.value);
-          this.router.navigate(['LoginEtudiant']);
+          this.firebaseService.createProfesseur(this.registerForm.value);
+          this.router.navigate(['direction']);
         };
       }catch(error:any){
         window.alert(error.message);

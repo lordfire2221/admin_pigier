@@ -4,10 +4,10 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Gestion professeur</h4>
+                          <h4 class="card-title">Gestion des Administrateurs</h4>
                       </div>
                       <div class="col-4 text-right">
-                          <a routerLink="/registerProfesseur" class="btn btn-sm btn-primary">Ajouter un Professeur</a>
+                          <a routerLink="/registerAdmin" class="btn btn-sm btn-primary">Ajouter un Administrateur</a>
                       </div>
                   </div>
               </div>
@@ -16,18 +16,23 @@
             <table class="table tablesorter " id="">
               <thead class=" text-primary">
                 <tr>
-                  <th>Nom </th> 
+                  <th>Nom </th>
                   <th>Prénom</th>
-                  <th>Numéro </th>
-                  <th>mail</th>
+                  <th>Service </th> 
+                  <th>Date naissance</th>
+                  <th>Email </th>
+                  <th>Numéro / Whatsapp</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.numero.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.email.stringValue}}</td>
+                <tr *ngFor="let etudiant of datas">
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.service.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.date_naissance.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.email.stringValue}} </td>
+                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.numero.stringValue}} / {{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.num_what.stringValue}}</td>
+
                   <form action="" method="POST">
                       <a routerLink="#">
                           <i class="fas fa-edit fa-lg"></i>

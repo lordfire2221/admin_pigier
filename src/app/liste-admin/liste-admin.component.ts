@@ -5,12 +5,11 @@ import { FirebaseService } from '../service/firebase.service';
 import { StorageService } from '../service/storage.service';
 
 @Component({
-  selector: 'app-liste-parent',
-  templateUrl: './liste-parent.component.html',
-  styleUrls: ['./liste-parent.component.css']
+  selector: 'app-liste-admin',
+  templateUrl: './liste-admin.component.html',
+  styleUrls: ['./liste-admin.component.css']
 })
-export class ListeParentComponent implements OnInit {
-
+export class ListeAdminComponent implements OnInit {
 
   constructor(private firebaseService:FirebaseService,
     private route:ActivatedRoute,
@@ -27,11 +26,11 @@ export class ListeParentComponent implements OnInit {
 
   ngOnInit() :void{
     
-    this.firebaseService.getParent().subscribe(
+    this.firebaseService.getAdmin().subscribe(
       res =>(this.datas = res)
     )
   }
   delete(id:number){
-    this.firebaseService.deleteFiliere(id)
+    this.firebaseService.deleteEtudiant(id)
   }
 }

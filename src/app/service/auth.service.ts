@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-
+ 
   currentUser:any;
   token:any;
   constructor() { }
@@ -22,6 +22,9 @@ export class AuthService {
   getToken() {
       return localStorage.getItem('token');
   }
+  getUid() {
+    return localStorage.getItem('uid');
+}
   clearStorage() {
       localStorage.clear();
   }

@@ -1,1 +1,58 @@
-<p>liste-parent works!</p>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion parent</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerParent" class="btn btn-sm btn-primary">Ajouter un Parent</a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Nom </th> 
+                  <th>Prénom</th>
+                  <th>Numéro / whatsapp</th>
+                  <th>mail</th>
+                  <th>Nom de l'etudiant</th>
+                  <th>Prénom de l'etudaint</th>
+                  <th>Filière </th>
+                  <th>Niveau</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let filiere of datas">
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.num_simple.stringValue}} / {{filiere.payload._delegate.doc._document.data.value.mapValue.fields.num_whatsapp.stringValue}}</td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.mail.stringValue}}</td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom_etudiant.stringValue}}</td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom_etudiant.stringValue}}</td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.filiere.stringValue}}</td>
+                  <td>licence :{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}}</td>
+                  <form action="" method="POST">
+                      <a routerLink="#">
+                          <i class="fas fa-edit fa-lg"></i>
+                      </a>
+                          <button type="submit"  class="ml-2" title="delete" style="border: none; background-color:transparent;">
+                              <i class="fas fa-trash fa-lg text-danger"></i>
+                          </button>
+  
+                      </form>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

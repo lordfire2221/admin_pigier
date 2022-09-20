@@ -44,6 +44,7 @@ import { ListeEtudiantComponent } from './liste-etudiant/liste-etudiant.componen
 import { ListeParentComponent } from './liste-parent/liste-parent.component';
 import { ListeProfesseurComponent } from './liste-professeur/liste-professeur.component';
 import { ListeReclammationComponent } from './liste-reclammation/liste-reclammation.component';
+import { ListeAdminComponent } from './liste-admin/liste-admin.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ListeReclammationComponent } from './liste-reclammation/liste-reclammat
     ListeEtudiantComponent,
     ListeParentComponent,
     ListeProfesseurComponent,
-    ListeReclammationComponent
+    ListeReclammationComponent,
+    ListeAdminComponent
   ],
   imports: [
     BrowserModule,

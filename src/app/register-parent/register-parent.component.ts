@@ -49,8 +49,8 @@ export class RegisterParentComponent implements OnInit {
       const result = await this.afAuth
       .createUserWithEmailAndPassword(formValue.mail, this.password)
       if(result){
-        this.firebaseService.createUser(this.registerForm.value);
-        this.router.navigate(['LoginEtudiant']);
+        this.firebaseService.createParent(this.registerForm.value);
+        this.router.navigate(['scolarite']);
       };
     }catch(error:any){
       window.alert(error.message);

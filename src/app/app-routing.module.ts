@@ -7,6 +7,7 @@ import { EtudeComponent } from './etude/etude.component';
 import { ExamenComponent } from './examen/examen.component';
 import { HomeComponent } from './home/home.component';
 import { InformatiqueComponent } from './informatique/informatique.component';
+import { ListeAdminComponent } from './liste-admin/liste-admin.component';
 import { ListeEtudiantComponent } from './liste-etudiant/liste-etudiant.component';
 import { ListeFiliereComponent } from './liste-filiere/liste-filiere.component';
 import { ListeParentComponent } from './liste-parent/liste-parent.component';
@@ -49,7 +50,8 @@ const routes: Routes = [
   {path:'sidebar',component:SidebarComponent},
   {path:'rendez-vous',component:RendezVousComponent},
   {path:'listeFiliere',component:ListeFiliereComponent},
-  {path:'listeEtudiant',component:ListeEtudiantComponent},
+  {path:'listeStudent',component:ListeEtudiantComponent},
+  {path:'listeAdmin',component:ListeAdminComponent},
   {path:'listeParent',component:ListeParentComponent},
   {path:'listeProfesseur',component:ListeProfesseurComponent},
   {path:'ListeRecclammation',component:ListeReclammationComponent}
