@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { finalize } from 'rxjs';
 import { ApiService } from '../service/api.service';
+import {AngularFirestore,AngularFirestoreDocument,} from '@angular/fire/compat/firestore';
+import {AngularFireStorage} from '@angular/fire/compat/storage';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FirebaseService } from '../service/firebase.service';
-import { StorageBulletinService } from '../service/storage-bulletin.service';
 import { StorageService } from '../service/storage.service';
-
+import { finalize } from "rxjs/operators";
+import { FileUpload } from '../models/file-upload.model';
+import { FileUploadService } from '../service/file-upload.service';
+import { StorageBulletinService } from '../service/storage-bulletin.service';
 @Component({
   selector: 'app-register-bulletin',
   templateUrl: './register-bulletin.component.html',
   styleUrls: ['./register-bulletin.component.css']
 })
 export class RegisterBulletinComponent implements OnInit {
-  public registerForm!:FormGroup;
+  public ajouterBulletin!:FormGroup;
   public id!:number;
   public uploadedFiles!:Array<File>;
   nomPhoto!: string;
-  selectedBulletin: any = null;
-  url!:string;
-  file!:string;
+  selectedFiles: FileList | undefined;
+  currentFileUpload!: FileUpload;
+  percentage!: number;
 
   constructor( private fb:FormBuilder,
     private router:Router,
@@ -32,8 +33,9 @@ export class RegisterBulletinComponent implements OnInit {
     public afs: AngularFirestore,
     public firebaseService:FirebaseService,
     private storage: AngularFireStorage, 
+    private uploadService: FileUploadService,
     private fileService: StorageBulletinService) {
-      this.registerForm = fb.group({
+      this.ajouterBulletin = fb.group({
         nom:['',[Validators.required,Validators.minLength(1)]],
         prenom:['',[Validators.required,Validators.minLength(1)]],
         Filiere:'',
@@ -42,32 +44,33 @@ export class RegisterBulletinComponent implements OnInit {
         type:'',
       })
      }
-     showPreview(event: any) {
-      this.selectedBulletin = event.target.files[0];
+
+     onSubmit() {
+      this.upload(this.ajouterBulletin.value)
+      this.router.navigate(['examen']);
+  
+    }
+    selectFile(event: any): void {
+      this.selectedFiles = event.target.files;
     }
   
+    upload(datas: any): void {
+      const file = this.selectedFiles!.item(0);
+      this.selectedFiles = undefined;
   
-    async onSubmit() {
-      const formValue = this.registerForm.value;
-      this.firebaseService.createBulletin(this.registerForm.value)
-      this.save()
-      this.router.navigate(['etude']);
-
+      this.currentFileUpload = new FileUpload(file!);
+      this.uploadService.pushFileToStorage(this.currentFileUpload, datas, 'bulletins').subscribe(
+        percentage => {
+          this.percentage = Math.round(percentage!);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      this.ngOnInit()
     }
     ngOnInit(){
-      this.fileService.getBulletinDetailList();
     }
-    save(){
-      var name = this.selectedBulletin.name;
-      const fileRef = this.storage.ref(name);
-      this.storage.upload(name, this.selectedBulletin).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            this.url = url;
-            this.fileService.insertBulletinDetails(`bulletin_etudiant_${Date.now()}`,this.url);
-            alert('Upload Successful');
-          })
-        })
-      ).subscribe();
-    }
+    
+  
 }

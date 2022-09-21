@@ -4,7 +4,7 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Ajouter Note</h4>
+                          <h4 class="card-title">Ajouter Programme</h4>
                       </div>
                   </div>
               </div>
@@ -13,12 +13,12 @@
         <div class="row">
           <div class="col-lg-12 margin-tb">
               <div class="pull-right">
-                  <a class="btn btn-outline-danger" routerLink="/listeNote" title="Go back"> <i class="fas fa-backward "></i> </a>
+                  <a class="btn btn-outline-danger" routerLink="/listeProgramme" title="Go back"> <i class="fas fa-backward "></i> </a>
               </div>
           </div>
       </div>
   
-      <form class="form" [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
+      <form class="form" [formGroup]="ajouterProgramme" (ngSubmit) = "onSubmit()">
               <div class="row justify-content-center">
                  
               <div class="col-xs-12 col-sm-6 col-lg-6 form_middle pb-5">
@@ -65,7 +65,15 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <strong>Programme :</strong>
-                        <input type="file" (change)="showPreview($event)" class="form-control">
+                        <input id="file" type="file" class="form-control" accept="image/*"
+                            (change)="selectFile($event)" style="height: 12px;opacity: 1;" formControlName="password">
+                    </div>
+                    <div *ngIf="currentFileUpload" class="progress mt-2">
+                        <div class="progress-bar progress-bar-info" role="progressbar"
+                            attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"
+                            [ngStyle]="{ width: percentage + '%' }">
+                            {{ percentage }}%
+                        </div>
                     </div>
                 </div>
 

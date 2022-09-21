@@ -34,13 +34,13 @@ export class FirebaseService {
     return this.db.collection('emploitemps').add(value)
   }
   createProgramme(value:any){
-    return this.db.collection('Programme').add(value)
+    return this.db.collection('Programmes').add(value)
   }
   createBulletin(value:any){
-    return this.db.collection('bulletin').add(value)
+    return this.db.collection('bulletins').add(value)
   }
   createNote(value:any){
-    return this.db.collection('bulletin').add(value)
+    return this.db.collection('note').add(value)
   }
   createComptabilite(value:any){
     return this.db.collection('comptabilite').add(value)
@@ -71,10 +71,10 @@ export class FirebaseService {
     return this.db.collection("emploitemps").snapshotChanges();
   }
   getProgramme(){
-    return this.db.collection("programme").snapshotChanges();
+    return this.db.collection("programmes").valueChanges({ idField: 'id' });;
   }
   getBulletin(){
-    return this.db.collection("bulletin").snapshotChanges();
+    return this.db.collection("bulletins").valueChanges({ idField: 'id' });;
   }
   getNote(){
     return this.db.collection("note").snapshotChanges();

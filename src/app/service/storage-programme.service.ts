@@ -1,47 +1,77 @@
-import { Inject, Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { Injectable, Inject } from '@angular/core';
+import { AngularFireList, AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageProgrammeService {
-  programmeDetailList!: AngularFireList<any>;
-  fileList!: any[];
-  dataSet: Data = {
-    id:'',
-    url:''
-  };
-  msg:string = 'error';
-  constructor(@Inject(AngularFireDatabase) private firebase: AngularFireDatabase) { }
-  getProgrammeDetailList() {
-    this.programmeDetailList = this.firebase.list('programmeDetails');
-  }
-  insertProgrammeDetails(id:any,url:any) {
-    this.dataSet = {
-      id : id,
-      url: url
-    };
-    this.programmeDetailList.push(this.dataSet);
-  }
-  getProgramme(value:any){
-    this.programmeDetailList.snapshotChanges().subscribe(
-      list => {
-        this.fileList = list.map(item => { return item.payload.val();  });
-        this.fileList.forEach(element => {
-          if(element.id===value)
-          this.msg = element.url;
+  private basePath = '/uploads';
+
+  constructor(private db: AngularFirestore,
+     private storage: AngularFireStorage,
+     private userservice:AuthService) { }
+
+  pushFileToStorage(fileUpload: any,datas:any,type:string): Observable<number | undefined> {
+    const filePath = `${type}/${fileUpload.file.name}`;
+    const storageRef = this.storage.ref(filePath);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+
+    uploadTask.snapshotChanges().pipe(
+      finalize(() => {
+        storageRef.getDownloadURL().subscribe(downloadURL => {
+          var data = {
+            ...datas,
+            photo:downloadURL,
+            name:fileUpload.file.name,
+            restaurant:this.userservice.getUid()
+          }
+          this.saveFileData(data,type);
         });
-        if(this.msg==='error')
-          alert('No record found');
-        else{
-          window.open(this.msg);
-          this.msg = 'error';
-        }
-      }
-    );
+      })
+    ).subscribe();
+
+    return uploadTask.percentageChanges();
   }
-}
-export interface Data{
-  id:string;
-  url:string;
+
+  updateToStorage(fileUpload: any,datas:any,type:string,id:any): Observable<number | undefined> {
+    const filePath = `${type}/${fileUpload.file.name}`;
+    const storageRef = this.storage.ref(filePath);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+
+    uploadTask.snapshotChanges().pipe(
+      finalize(() => {
+        storageRef.getDownloadURL().subscribe(downloadURL => {
+          var data = {
+            ...datas,
+            photo:downloadURL,
+            name:fileUpload.file.name,
+            restaurant:this.userservice.getUid()
+          }
+          this.updateFileData(data,type,id);
+        });
+      })
+    ).subscribe();
+
+    return uploadTask.percentageChanges();
+  }
+
+  private saveFileData(fileUpload: any,type:string): void {
+    this.db.collection(type).add(fileUpload);
+  }
+  private updateFileData(fileUpload: any,type:string,id:any): void {
+    this.db.doc(`${type}/${id}`).update(fileUpload);
+  }
+
+  deleteFile(fileUpload: any,type:string): void {
+        this.deleteFileStorage(fileUpload,type);
+  }
+  private deleteFileStorage(name: string,type:string): void {
+    const storageRef = this.storage.ref(type);
+    storageRef.child(name).delete();
+  }
 }

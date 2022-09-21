@@ -18,7 +18,7 @@
           </div>
       </div>
   
-      <form class="form" [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
+      <form class="form" [formGroup]="ajouterBulletin" (ngSubmit) = "onSubmit()">
               <div class="row justify-content-center">
                  
               <div class="col-xs-12 col-sm-6 col-lg-6 form_middle pb-5">
@@ -90,12 +90,23 @@
                   </div>
               </div>
 
+              
+              
               <div class="col-xs-12">
-                  <div class="form-group">
-                      <strong>Image Etudiant :</strong>
-                      <input type="file" (change)="showPreview($event)" class="form-control">
+                <div class="form-group">
+                    <strong>Programme :</strong>
+                    <input id="file" type="file" class="form-control" accept="image/*"
+                        (change)="selectFile($event)" style="height: 12px;opacity: 1;" formControlName="password">
+                </div>
+                <div *ngIf="currentFileUpload" class="progress mt-2">
+                    <div class="progress-bar progress-bar-info" role="progressbar"
+                        attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"
+                        [ngStyle]="{ width: percentage + '%' }">
+                        {{ percentage }}%
                     </div>
-              </div>
+                </div>
+            </div>
+
                   <div class="col-xs-12 mt-4">
                       <button type="submit" class="btn btn-primary btn-full-width">Enregistrer</button>
                   </div>
