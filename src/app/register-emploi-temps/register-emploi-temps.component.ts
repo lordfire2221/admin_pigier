@@ -41,13 +41,14 @@ export class RegisterEmploiTempsComponent implements OnInit {
         })
      }
    onSubmit(){
+    
     this.firebaseService.createEmploiTemps(this.registerForm.value)
     .then(
       (res: any) => {
         if (res)
-        this.router.navigate(['etude']);
+        this.router.navigate(['direction']);
         else
-        this.router.navigate(['registerFiliere']);
+        this.router.navigate(['registerEmploiTemps']);
       }
     )
    }

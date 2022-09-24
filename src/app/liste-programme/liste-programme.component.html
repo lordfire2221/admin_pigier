@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion des Etudiants</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerEtudiant" class="btn btn-sm btn-primary">Ajouter un étudiant</a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Filière </th>
+                  <th>Date</th>
+                  <th>niveau </th>
+                  <th>lien Programme</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let programme of datas">
+                  <td>{{programme.Filiere}} </td>
+                  <td>{{programme.date}} </td>
+                  <td>licence :{{programme.niveau}} </td>
+                  <td><a href={{programme.photo}}>Programme</a></td>
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(programme.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
+
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

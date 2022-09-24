@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion des comptes</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerComptabilite" class="btn btn-sm btn-primary">Ajouter solde </a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Nom </th>
+                  <th>Prénom </th> 
+                  <th>Filiere</th>
+                  <th>Niveau</th>
+                  <th>Etat de solde</th>
+                  <th>Frais totaux</th>
+                  <th>Frais payé</th>
+                  <th>Frais restant</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let filiere of datas">
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.Filiere.stringValue}} </td>
+                  <td>licence: {{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.inscription.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.totaux.numberValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.paye.numberValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.restant.numberValue}} </td>
+
+
+
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(filiere.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

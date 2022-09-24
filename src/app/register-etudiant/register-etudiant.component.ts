@@ -62,7 +62,7 @@ password!:string;
         .createUserWithEmailAndPassword(formValue.email, this.password)
         if(result){
           this.upload(this.ajouterEtudiant.value)
-          this.router.navigate(['administration']);
+          this.router.navigate(['scolarite']);
         };
     } catch (error:any) {
       window.alert(error.message);

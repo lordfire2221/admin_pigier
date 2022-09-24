@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion des Bulletin</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerBulletin" class="btn btn-sm btn-primary">Ajouter un bulletin</a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Nom </th>
+                  <th>Prénom</th>
+                  <th>Filière </th>
+                  <th>Niveau</th>
+                  <th>Type</th>
+                  <th>Semestre</th>
+                  <th>Bulletin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bulletin of datas">
+                  <td>{{bulletin.nom}} </td>
+                  <td>{{bulletin.prenom}} </td>
+                  <td>{{bulletin.Filiere}} </td>
+                  <td>licence :{{bulletin.niveau}} </td>
+                  <td>{{bulletin.type}} </td>
+                  <td>{{bulletin.semestre}} </td>
+                  <td><a href={{bulletin.photo}}>bulletin</a> </td>
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(bulletin.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
+
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

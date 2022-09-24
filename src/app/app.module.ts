@@ -45,6 +45,19 @@ import { ListeParentComponent } from './liste-parent/liste-parent.component';
 import { ListeProfesseurComponent } from './liste-professeur/liste-professeur.component';
 import { ListeReclammationComponent } from './liste-reclammation/liste-reclammation.component';
 import { ListeAdminComponent } from './liste-admin/liste-admin.component';
+import { ListeProgrammeComponent } from './liste-programme/liste-programme.component';
+import { ListeBulletinComponent } from './liste-bulletin/liste-bulletin.component';
+import { FooterComponent } from './footer/footer.component';
+import { RegisterComptabilteComponent } from './register-comptabilte/register-comptabilte.component';
+import { SidebarDirectionComponent } from './sidebar-direction/sidebar-direction.component';
+import { ListeNoteComponent } from './liste-note/liste-note.component';
+import { ListecomptableComponent } from './listecomptable/listecomptable.component';
+import { ListeEmploisTempsComponent } from './liste-emplois-temps/liste-emplois-temps.component';
+import { RegisterMatiereComponent } from './register-matiere/register-matiere.component';
+import { ListeEtudiantExamenComponent } from './liste-etudiant-examen/liste-etudiant-examen.component';
+import { ListeMatiereComponent } from './liste-matiere/liste-matiere.component';
+import { RegisterNiveauComponent } from './register-niveau/register-niveau.component';
+import { ListeNiveauComponent } from './liste-niveau/liste-niveau.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +89,20 @@ import { ListeAdminComponent } from './liste-admin/liste-admin.component';
     ListeParentComponent,
     ListeProfesseurComponent,
     ListeReclammationComponent,
-    ListeAdminComponent
+    ListeAdminComponent,
+    ListeProgrammeComponent,
+    ListeBulletinComponent,
+    FooterComponent,
+    RegisterComptabilteComponent,
+    SidebarDirectionComponent,
+    ListeNoteComponent,
+    ListecomptableComponent,
+    ListeEmploisTempsComponent,
+    RegisterMatiereComponent,
+    ListeEtudiantExamenComponent,
+    ListeMatiereComponent,
+    RegisterNiveauComponent,
+    ListeNiveauComponent
   ],
   imports: [
     BrowserModule,

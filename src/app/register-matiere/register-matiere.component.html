@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Ajouter une filière</h4>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+  
+        <div class="row">
+          <div class="col-lg-12 margin-tb">
+              <div class="pull-right">
+                  <a class="btn btn-outline-danger" routerLink="/direction" title="Go back"> <i class="fas fa-backward "></i> </a>
+              </div>
+          </div>
+      </div>
+  
+      <form class="form" [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
+              <div class="row justify-content-center">
+                 
+              <div class="col-xs-12 col-sm-6 col-lg-6 form_middle pb-5">
+                 
+                  <div class="col-lg-12 margin-tb p-0">
+                  </div>
+  
+                  <div class="col-xs-12">
+                      <div class="form-group">
+                          <strong>Nom :</strong>
+                          <input type="text" formControlName="nom" class="form-control" placeholder="Nom de la matière" required>
+                      </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                        <strong>filière :</strong>
+                        <select formControlName="filiere" id="filiere" required>
+                            <div class="option" *ngfor="let filiere of datas">
+                                <option  value="{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}}" >{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <strong>Niveau :</strong>
+                        <select formControlName="niveau" id="niveau" required>
+                            <div class="option" *ngfor="let niveau of etudiants">
+                                <option  value={{niveau.nom}}>{{niveau.nom}} </option>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+                  <div class="col-xs-12 mt-4">
+                      <button type="submit" class="btn btn-primary btn-full-width">Enregistrer</button>
+                  </div>
+  
+  
+              </div>
+  
+          </div>
+  
+      </form>
+      </div>
+      </div>
+      </div>
+  </div>

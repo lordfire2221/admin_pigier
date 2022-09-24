@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+      <div class="card-header">
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Gestion filières</h4>
+                      </div>
+                      <div class="col-4 text-right">
+                          <a routerLink="/registerEmploisTemps" class="btn btn-sm btn-primary">Ajouter Emplois</a>
+                      </div>
+                  </div>
+              </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Matière </th>
+                  <th>Filière </th> 
+                  <th>niveau </th>
+                  <th>Date </th>
+                  <th>Professeur</th>
+                  <th>Mois </th>
+                  <th>Heure </th>
+                  <th>Année </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let filiere of datas">
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.matiere.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.filiere.stringValue}} </td>
+                  <td>Licence :{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.date.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.professeur.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.mois.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.heure.stringValue}} </td>
+                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.annee.stringValue}} </td>
+
+
+
+
+
+
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(filiere.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

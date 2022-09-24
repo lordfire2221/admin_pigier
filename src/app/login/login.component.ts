@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.userService.setDataInLocalStorage('token', JSON.stringify(result));
-            this.firebaseservice.getEtudiants(formValue.email).subscribe((res:any)=>{
+            this.firebaseservice.getUser(formValue.email).subscribe((res:any)=>{
               this.datas = res.docs[0]._delegate._document.data.value.mapValue.fields.service.stringValue
               console.log(this.datas)
               if(res.docs[0]._delegate._document.data.value.mapValue.fields.service.stringValue == 'examen'){

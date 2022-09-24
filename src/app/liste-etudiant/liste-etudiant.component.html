@@ -1,4 +1,5 @@
 <div class="row">
+
     <div class="col-md-12">
       <div class="card ">
       <div class="card-header">
@@ -27,23 +28,20 @@
               </thead>
               <tbody>
                 <tr *ngFor="let etudiant of datas">
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.nom_etudiant.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.prenom_etudiant.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.Filiere.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.date_naissance.stringValue}} </td>
-                  <td>Licence :{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.niv_universitaire.numberValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.email.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.num_etudiant.stringValue}} </td>
+                  <td>{{etudiant.nom_etudiant}} </td>
+                  <td>{{etudiant.prenom_etudiant}} </td>
+                  <td>{{etudiant.Filiere}} </td>
+                  <td>{{etudiant.date_naissance}} </td>
+                  <td>Licence :{{etudiant.niv_etudiant}} </td>
+                  <td>{{etudiant.email}} </td>
+                  <td>{{etudiant.num_etudiant}} </td>
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(etudiant.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
 
-                  <form action="" method="POST">
-                      <a routerLink="#">
-                          <i class="fas fa-edit fa-lg"></i>
-                      </a>
-                          <button type="submit"  class="ml-2" title="delete" style="border: none; background-color:transparent;">
-                              <i class="fas fa-trash fa-lg text-danger"></i>
-                          </button>
-  
-                      </form>
                 </tr>
               </tbody>
             </table>

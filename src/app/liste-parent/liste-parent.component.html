@@ -36,15 +36,13 @@
                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom_etudiant.stringValue}}</td>
                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.filiere.stringValue}}</td>
                   <td>licence :{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}}</td>
-                  <form action="" method="POST">
-                      <a routerLink="#">
-                          <i class="fas fa-edit fa-lg"></i>
-                      </a>
-                          <button type="submit"  class="ml-2" title="delete" style="border: none; background-color:transparent;">
-                              <i class="fas fa-trash fa-lg text-danger"></i>
-                          </button>
-  
-                      </form>
+                  <td>
+                    <button type="submit" class="ml-2" title="delete"
+                        style="border: none; background-color:transparent;"
+                        (click)="delete(filiere.id)">
+                        <i class="fas fa-trash fa-lg text-danger">Del</i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
