@@ -32,26 +32,7 @@
                           <input type="text" formControlName="nom" class="form-control" placeholder="Nom de la matière" required>
                       </div>
                   </div>
-                  <div class="col-xs-12">
-                    <div class="form-group">
-                        <strong>filière :</strong>
-                        <select formControlName="filiere" id="filiere" required>
-                            <div class="option" *ngfor="let filiere of datas">
-                                <option  value="{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}}" >{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
-                            </div>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <strong>Niveau :</strong>
-                        <select formControlName="niveau" id="niveau" required>
-                            <div class="option" *ngfor="let niveau of etudiants">
-                                <option  value={{niveau.nom}}>{{niveau.nom}} </option>
-                            </div>
-                        </select>
-                    </div>
-                </div>
+               
                   <div class="col-xs-12 mt-4">
                       <button type="submit" class="btn btn-primary btn-full-width">Enregistrer</button>
                   </div>

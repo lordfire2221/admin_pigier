@@ -13,6 +13,7 @@ import { ListeEmploisTempsComponent } from './liste-emplois-temps/liste-emplois-
 import { ListeEtudiantExamenComponent } from './liste-etudiant-examen/liste-etudiant-examen.component';
 import { ListeEtudiantComponent } from './liste-etudiant/liste-etudiant.component';
 import { ListeFiliereComponent } from './liste-filiere/liste-filiere.component';
+import { ListeMatiereComponent } from './liste-matiere/liste-matiere.component';
 import { ListeNiveauComponent } from './liste-niveau/liste-niveau.component';
 import { ListeNoteComponent } from './liste-note/liste-note.component';
 import { ListeParentComponent } from './liste-parent/liste-parent.component';
@@ -21,6 +22,14 @@ import { ListeProgrammeComponent } from './liste-programme/liste-programme.compo
 import { ListeReclammationComponent } from './liste-reclammation/liste-reclammation.component';
 import { ListecomptableComponent } from './listecomptable/listecomptable.component';
 import { LoginComponent } from './login/login.component';
+import { ModifierAdminComponent } from './modifier-admin/modifier-admin.component';
+import { ModifierEtudiantComponent } from './modifier-etudiant/modifier-etudiant.component';
+import { ModifierFiliereComponent } from './modifier-filiere/modifier-filiere.component';
+import { ModifierMatiereComponent } from './modifier-matiere/modifier-matiere.component';
+import { ModifierNiveauComponent } from './modifier-niveau/modifier-niveau.component';
+import { ModifierNoteComponent } from './modifier-note/modifier-note.component';
+import { ModifierParentComponent } from './modifier-parent/modifier-parent.component';
+import { ModifierProgrammeComponent } from './modifier-programme/modifier-programme.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { RegisterBulletinComponent } from './register-bulletin/register-bulletin.component';
 import { RegisterComptabilteComponent } from './register-comptabilte/register-comptabilte.component';
@@ -75,6 +84,16 @@ const routes: Routes = [
   {path:'listeEmploisTemps',component:ListeEmploisTempsComponent},
   {path:'listeEtudiantExamen',component:ListeEtudiantExamenComponent},
   {path:'listeNiveau',component:ListeNiveauComponent},
+  {path:'listeMatiere',component:ListeMatiereComponent},
+  {path:'ModifierMatiere',component:ModifierMatiereComponent},
+  {path:'ModifierNiveau',component:ModifierNiveauComponent},
+  {path:'ModifierFiliere',component:ModifierFiliereComponent},
+  {path:'ModifierEtudiant',component:ModifierEtudiantComponent},
+  {path:'ModifierParent',component:ModifierParentComponent},
+  {path:'ModifierAdmin',component:ModifierAdminComponent},
+  {path:'ModifierProgramme',component:ModifierProgrammeComponent},
+  {path:'ModifierNote',component:ModifierNoteComponent},
+  {}
 ];
 
 @NgModule({

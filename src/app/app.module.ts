@@ -58,6 +58,15 @@ import { ListeEtudiantExamenComponent } from './liste-etudiant-examen/liste-etud
 import { ListeMatiereComponent } from './liste-matiere/liste-matiere.component';
 import { RegisterNiveauComponent } from './register-niveau/register-niveau.component';
 import { ListeNiveauComponent } from './liste-niveau/liste-niveau.component';
+import { ModifierMatiereComponent } from './modifier-matiere/modifier-matiere.component';
+import { ModifierNiveauComponent } from './modifier-niveau/modifier-niveau.component';
+import { ModifierFiliereComponent } from './modifier-filiere/modifier-filiere.component';
+import { ModifierEtudiantComponent } from './modifier-etudiant/modifier-etudiant.component';
+import { ModifierParentComponent } from './modifier-parent/modifier-parent.component';
+import { ModifierAdminComponent } from './modifier-admin/modifier-admin.component';
+import { ModifierProgrammeComponent } from './modifier-programme/modifier-programme.component';
+import { ModifierNoteComponent } from './modifier-note/modifier-note.component';
+import { ModifierComptabiliteComponent } from './modifier-comptabilite/modifier-comptabilite.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +111,16 @@ import { ListeNiveauComponent } from './liste-niveau/liste-niveau.component';
     ListeEtudiantExamenComponent,
     ListeMatiereComponent,
     RegisterNiveauComponent,
-    ListeNiveauComponent
+    ListeNiveauComponent,
+    ModifierMatiereComponent,
+    ModifierNiveauComponent,
+    ModifierFiliereComponent,
+    ModifierEtudiantComponent,
+    ModifierParentComponent,
+    ModifierAdminComponent,
+    ModifierProgrammeComponent,
+    ModifierNoteComponent,
+    ModifierComptabiliteComponent
   ],
   imports: [
     BrowserModule,

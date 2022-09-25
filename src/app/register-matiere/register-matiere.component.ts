@@ -47,25 +47,18 @@ export class RegisterMatiereComponent implements OnInit {
 
 
 onSubmit(){
-
+  this.firebaseService.createMatiere(this.registerForm.value)
+  .then(
+    (res: any) => {
+      if (res)
+      this.router.navigate(['etude']);
+      else
+      this.router.navigate(['registerNiveau']);
+    }
+  )
 }
 
-  ngOnInit(): void {
-    this.firebaseService.getNiveaux().subscribe(
-      (res:any)=>{
-        console.log(res)
-        this.datas=res
-      }
-    )
-    console.log(this.datas)
-
-    this.firebaseService.getFilieres().subscribe(
-      (result:any)=>{
-        console.log(result)
-        this.datas1=result
-      }
-    )
-    
+  ngOnInit(): void {    
   }
 
 }
