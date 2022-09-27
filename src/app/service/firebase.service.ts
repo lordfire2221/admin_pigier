@@ -205,4 +205,7 @@ getMatieres(filiere:string,niveau:string){
       modifierMatiere(value:any,id:any){
         return this.db.doc(`matiere/${id}`).update(value)
       }
+      modifierAdmin(value:any,id:any){
+        return this.db.doc(`bulletin/${id}`).update(value)
+      }
 }
