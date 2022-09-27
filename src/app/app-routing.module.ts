@@ -72,7 +72,7 @@ const routes: Routes = [
   {path:'registerNote',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterNoteComponent},
   {path:'registerParent',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterParentComponent},
   {path:'registerProfesseur',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterProfesseurComponent},
-  {path:'registerProgrammes',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterProgrammeComponent},
+  {path:'registerProgramme',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterProgrammeComponent},
   {path:'registerFiliere',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterFiliereComponent},
   {path:'registerComptabilite',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterComptabilteComponent},
   {path:'registerMatiere',canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirect},component:RegisterMatiereComponent},

@@ -28,14 +28,14 @@
               </thead>
               <tbody>
                 <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.matiere.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.filiere.stringValue}} </td>
-                  <td>Licence :{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.date.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.professeur.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.mois.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.heure.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.annee.stringValue}} </td>
+                  <td>{{filiere.matiere}} </td>
+                  <td>{{filiere.filiere}} </td>
+                  <td>{{filiere.niveau}} </td>
+                  <td>{{filiere.date}} </td>
+                  <td>{{filiere.professeur}} </td>
+                  <td>{{filiere.mois}} </td>
+                  <td>{{filiere.heure}} </td>
+                  <td>{{filiere.annee}} </td>
 
                   <td>
                     <button type="submit" class="ml-2" title="delete"

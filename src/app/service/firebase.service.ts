@@ -9,6 +9,8 @@ import { getStorage, ref, listAll } from "firebase/storage";
 export class FirebaseService {
 
   constructor(public db: AngularFirestore) {}
+  //création d'élément
+
   createUser(value:any){
     return this.db.collection('userDatas').add(value);
   }
@@ -54,7 +56,9 @@ createMatiere(value:any){
 createNiveau(value:any){
   return this.db.collection('niveau').add(value)
 }
+
 //récuperation des informations
+
 getMatiere(){
   return this.db.collection('matiere').valueChanges({ idField: 'id' });
 }
@@ -62,8 +66,6 @@ getMatiere(){
 getNiveau(){
   return this.db.collection('niveau').valueChanges({idField: 'id'});
 }
-
-
 
 getMatieres(filiere:string,niveau:string){
   return this.db.collection("matiere", ref=>ref.where("Filiere",'==',filiere).where("niveau",'==',niveau)).valueChanges()
@@ -145,6 +147,9 @@ getMatieres(filiere:string,niveau:string){
   getProfesseurs(email:string){
     return this.db.collection("professeur",ref=>ref.where("email","==",email)).valueChanges();
   }
+
+  //supression d'élément
+
   deleteFiliere(id:any){
     return this.db.collection("filiere").doc(id).delete();  }
     deleteProgramme(id:any){
@@ -170,5 +175,34 @@ getMatieres(filiere:string,niveau:string){
       }
       deleteNiveau(id:any){
         return this.db.collection('niveau').doc(id).delete ;
+      }
+      deleteAdmin(id:any){
+        return this.db.collection('admin').doc(id).delete ;
+      }
+
+      //modification d'élement
+      modifierBulletin(value:any,id:any){
+        return this.db.doc(`bulletins/${id}`).update(value)
+      }
+      modifierEtudiant(value:any,id:any){
+        return this.db.doc(`etudiants/${id}`).update(value)
+      }
+      modifierProgramme(value:any,id:any){
+        return this.db.doc(`programmes/${id}`).update(value)
+      }
+      modifierParent(value:any,id:any){
+        return this.db.doc(`parent/${id}`).update(value)
+      }
+      modifierNote(value:any,id:any){
+        return this.db.doc(`note/${id}`).update(value)
+      }
+      modifierEmploisTemps(value:any,id:any){
+        return this.db.doc(`emploitemps/${id}`).update(value)
+      }
+      modifierNiveau(value:any,id:any){
+        return this.db.doc(`niveau/${id}`).update(value)
+      }
+      modifierMatiere(value:any,id:any){
+        return this.db.doc(`matiere/${id}`).update(value)
       }
 }

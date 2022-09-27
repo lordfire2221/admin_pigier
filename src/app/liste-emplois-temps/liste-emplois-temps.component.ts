@@ -31,6 +31,6 @@ export class ListeEmploisTempsComponent implements OnInit {
     )
   }
   delete(id:number){
-    this.firebaseService.deleteFiliere(id)
+    this.firebaseService.deleteEmploisTemps(id)
   }
 }

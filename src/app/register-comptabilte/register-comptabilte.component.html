@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <strong>Filière :</strong>
                         <select formControlformControlName="Filiere" id="filiere" class="form-control" required>
-                            <option *ngFor="let filiere of datas" value={{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}} >{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
+                            <option *ngFor="let filiere of datas" value={{filiere.abreviation}} >{{filiere.nom}} </option>
                         </select>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <strong>Niveau de l'étudiant :</strong>
                                 <select formControlName="niveau" id="niveau" class="form-control" required>
-                                    <option *ngFor="let niveau of datas1" value={{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} >{{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
+                                    <option *ngFor="let niveau of datas1" value={{niveau.nom}} >{{niveau.nom}} </option>
                                 </select>
                             </div>
                         </div>  

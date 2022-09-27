@@ -26,12 +26,12 @@
               </thead>
               <tbody>
                 <tr *ngFor="let etudiant of datas">
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.service.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.date_naissance.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.email.stringValue}} </td>
-                  <td>{{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.numero.stringValue}} / {{etudiant.payload._delegate.doc._document.data.value.mapValue.fields.num_what.stringValue}}</td>
+                  <td>{{etudiant.nom}} </td>
+                  <td>{{etudiant.prenom}} </td>
+                  <td>{{etudiant.service}} </td>
+                  <td>{{etudiant.date_naissance}} </td>
+                  <td>{{etudiant.email}} </td>
+                  <td>{{etudiant.numero}} / {{etudiant.num_what}}</td>
                   <td>
                     <button type="submit" class="ml-2" title="delete"
                         style="border: none; background-color:transparent;"

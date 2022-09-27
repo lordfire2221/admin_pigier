@@ -22,8 +22,8 @@
               </thead>
               <tbody>
                 <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}} </td>
+                  <td>{{filiere.nom}} </td>
+                  <td>{{filiere.abreviation}} </td>
                   <td>
                     <button type="submit" class="ml-2" title="delete"
                         style="border: none; background-color:transparent;"

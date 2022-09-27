@@ -31,6 +31,6 @@ export class ListeAdminComponent implements OnInit {
     )
   }
   delete(id:number){
-    this.firebaseService.deleteEtudiant(id)
+    this.firebaseService.deleteAdmin(id)
   }
 }
