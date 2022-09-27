@@ -53,7 +53,6 @@ import { SidebarDirectionComponent } from './sidebar-direction/sidebar-direction
 import { ListeNoteComponent } from './liste-note/liste-note.component';
 import { ListecomptableComponent } from './listecomptable/listecomptable.component';
 import { ListeEmploisTempsComponent } from './liste-emplois-temps/liste-emplois-temps.component';
-import { RegisterMatiereComponent } from './register-matiere/register-matiere.component';
 import { ListeEtudiantExamenComponent } from './liste-etudiant-examen/liste-etudiant-examen.component';
 import { ListeMatiereComponent } from './liste-matiere/liste-matiere.component';
 import { RegisterNiveauComponent } from './register-niveau/register-niveau.component';
@@ -67,6 +66,9 @@ import { ModifierAdminComponent } from './modifier-admin/modifier-admin.componen
 import { ModifierProgrammeComponent } from './modifier-programme/modifier-programme.component';
 import { ModifierNoteComponent } from './modifier-note/modifier-note.component';
 import { ModifierComptabiliteComponent } from './modifier-comptabilite/modifier-comptabilite.component';
+import { ModifierEmploisTempsComponent } from './modifier-emplois-temps/modifier-emplois-temps.component';
+import { ModifierBulletinComponent } from './modifier-bulletin/modifier-bulletin.component';
+import { RegisterMatiereComponent } from './register-matiere/register-matiere.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +109,6 @@ import { ModifierComptabiliteComponent } from './modifier-comptabilite/modifier-
     ListeNoteComponent,
     ListecomptableComponent,
     ListeEmploisTempsComponent,
-    RegisterMatiereComponent,
     ListeEtudiantExamenComponent,
     ListeMatiereComponent,
     RegisterNiveauComponent,
@@ -120,7 +121,10 @@ import { ModifierComptabiliteComponent } from './modifier-comptabilite/modifier-
     ModifierAdminComponent,
     ModifierProgrammeComponent,
     ModifierNoteComponent,
-    ModifierComptabiliteComponent
+    ModifierComptabiliteComponent,
+    ModifierEmploisTempsComponent,
+    ModifierBulletinComponent,
+    RegisterMatiereComponent
   ],
   imports: [
     BrowserModule,

@@ -4,10 +4,10 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Gestion filières</h4>
+                          <h4 class="card-title">Gestion des notes</h4>
                       </div>
                       <div class="col-4 text-right">
-                          <a routerLink="/registerFiliere" class="btn btn-sm btn-primary">Ajouter Filière</a>
+                          <a routerLink="/registerNote" class="btn btn-sm btn-primary">Ajout des notes</a>
                       </div>
                   </div>
               </div>
@@ -25,27 +25,32 @@
                   <th>Note 2</th>
                   <th>Note 3</th>
                   <th>Note 4</th>
-                  <th>Note 5</th>
+                  <th>Devoir</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.Filiere.stringValue}}</td>
-                  <td>Licence :{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.matiere.stringValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.note1.stringValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.note2.stringValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.note3.stringValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.note4.stringValue}}</td>
-                   <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.devoir.stringValue}}</td>
+                  <td>{{filiere.nom}} </td>
+                  <td>{{filiere.prenom}} </td>
+                  <td>{{filiere.Filiere}}</td>
+                  <td>{{filiere.niveau}}</td>
+                   <td>{{filiere.matiere}}</td>
+                   <td>{{filiere.note1}}</td>
+                   <td>{{filiere.note2}}</td>
+                   <td>{{filiere.note3}}</td>
+                   <td>{{filiere.note4}}</td>
+                   <td>{{filiere.devoir}}</td>
                   <td>
                     <button type="submit" class="ml-2" title="delete"
                         style="border: none; background-color:transparent;"
                         (click)="delete(filiere.id)">
                         <i class="fas fa-trash fa-lg text-danger">Del</i>
                     </button>
+                  </td>
+                  <td>
+                    <a routerLink="/modifierNote">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>

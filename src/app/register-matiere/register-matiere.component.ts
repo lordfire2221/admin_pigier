@@ -51,14 +51,23 @@ onSubmit(){
   .then(
     (res: any) => {
       if (res)
-      this.router.navigate(['etude']);
+      this.router.navigate(['listeMatiere']);
       else
-      this.router.navigate(['registerNiveau']);
+      this.router.navigate(['registerMatiere']);
     }
   )
 }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+     
+    this.firebaseService.getFiliere().subscribe(
+      res =>(this.datas = res)
+    )
+    
+        
+    this.firebaseService.getNiveau().subscribe(
+      res =>(this.datas1 = res)
+    )
   }
 
 }

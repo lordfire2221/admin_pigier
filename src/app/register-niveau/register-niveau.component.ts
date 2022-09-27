@@ -39,7 +39,7 @@ export class RegisterNiveauComponent implements OnInit {
       .then(
         (res: any) => {
           if (res)
-          this.router.navigate(['etude']);
+          this.router.navigate(['listeNiveau']);
           else
           this.router.navigate(['registerNiveau']);
         }

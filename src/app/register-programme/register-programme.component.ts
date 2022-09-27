@@ -45,7 +45,7 @@ export class RegisterProgrammeComponent implements OnInit {
   //
   onSubmit() {
     this.upload(this.ajouterProgramme.value)
-    this.router.navigate(['etude']);
+    this.router.navigate(['listeProgramme']);
 
   }
   selectFile(event: any): void {
@@ -67,7 +67,24 @@ export class RegisterProgrammeComponent implements OnInit {
     );
     this.ngOnInit()
   }
+  public datas:any[]=[];
+  public datas1:any[]=[];
+  public dataSource:any;
+  navbarClass!:string;
+  public disp:string='hide';
+  public etudiants:any=<any>{};
+  public etudiants1:any=<any>{};
+
+
   ngOnInit(){
+    this.firebaseService.getFiliere().subscribe(
+      res =>(this.datas = res)
+    )
+    
+        
+    this.firebaseService.getNiveau().subscribe(
+      res =>(this.datas1 = res)
+    )
   }
   
 

@@ -32,6 +32,6 @@ export class ListeParentComponent implements OnInit {
     )
   }
   delete(id:number){
-    this.firebaseService.deleteFiliere(id)
+    this.firebaseService.deleteParent(id)
   }
 }

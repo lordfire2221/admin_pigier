@@ -33,6 +33,6 @@ export class ListeNoteComponent implements OnInit {
     console.log(this.datas)
   }
   delete(id:number){
-    this.firebaseService.deleteFiliere(id)
+    this.firebaseService.deleteNote(id)
   }
 }

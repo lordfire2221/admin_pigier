@@ -56,14 +56,14 @@ createNiveau(value:any){
 }
 //récuperation des informations
 getMatiere(){
-  return this.db.collection('matiere').snapshotChanges();
+  return this.db.collection('matiere').valueChanges({ idField: 'id' });
 }
+
 getNiveau(){
-  return this.db.collection('niveau').snapshotChanges();
+  return this.db.collection('niveau').valueChanges({idField: 'id'});
 }
-getNiveaux(){
-  return this.db.collection('niveau').snapshotChanges();
-}
+
+
 
 getMatieres(filiere:string,niveau:string){
   return this.db.collection("matiere", ref=>ref.where("Filiere",'==',filiere).where("niveau",'==',niveau)).valueChanges()
@@ -72,33 +72,39 @@ getMatieres(filiere:string,niveau:string){
   getEtudiant(){
     return this.db.collection('etudiants').valueChanges({ idField: 'id' });
   }
+  getStudent(){
+    return this.db.collection('etudiants').snapshotChanges()
+  }
   getImageUrl() {
     const storage = getStorage()
   }
 
   getParent(){
-    return this.db.collection('parent').snapshotChanges();
+    return this.db.collection('parent').valueChanges({ idField: 'id' });
+  }
+  getParents1(){
+    return this.db.collection('parent').valueChanges({ idField: 'id' });
   }
   getReclammation(){
-    return this.db.collection('reclammation').snapshotChanges();
+    return this.db.collection('reclammation').valueChanges({ idField: 'id' });
   }
   getProfesseur(){
-    return this.db.collection('professeur').snapshotChanges();
+    return this.db.collection('professeur').valueChanges({ idField: 'id' });
   }
   getAdmin(){
-    return this.db.collection('admin').snapshotChanges();
+    return this.db.collection('admin').valueChanges({ idField: 'id' });
   }
   getFiliere(){
-    return this.db.collection("filiere").snapshotChanges();
+    return this.db.collection("filiere").valueChanges({ idField: 'id' });
   }
   getFilieres(){
-    return this.db.collection("filiere").get();
+    return this.db.collection("filiere").valueChanges({ idField: 'id' });
   }
   getService(){
-    return this.db.collection("service").snapshotChanges();
+    return this.db.collection("service").valueChanges({ idField: 'id' });
   }
   getEmploiTemps(){
-    return this.db.collection("emploitemps").snapshotChanges();
+    return this.db.collection("emploitemps").valueChanges({ idField: 'id' });
   }
   getProgramme(){
     return this.db.collection("programmes").valueChanges({ idField: 'id' });;
@@ -107,10 +113,10 @@ getMatieres(filiere:string,niveau:string){
     return this.db.collection("bulletins").valueChanges({ idField: 'id' });;
   }
   getNote(){
-    return this.db.collection("note").snapshotChanges();
+    return this.db.collection("note").valueChanges({ idField: 'id' });
   }
   getComptabilite(){
-    return this.db.collection("comptabilite").snapshotChanges();
+    return this.db.collection("comptabilite").valueChanges({ idField: 'id' });
   }
   getUsers(){
     return this.db.collection("userDatas").snapshotChanges();
@@ -149,5 +155,20 @@ getMatieres(filiere:string,niveau:string){
       return this.db.collection("etudiants").doc(id).delete();  }
       deleteParent(id:any){
         return this.db.collection('parent').doc(id).delete ;
+      }
+      deleteMatiere(id:any){
+        return this.db.collection('matiere').doc(id).delete ;
+      }
+      deleteNote(id:any){
+        return this.db.collection('note').doc(id).delete ;
+      }
+      deleteComptabilite(id:any){
+        return this.db.collection('comptabilite').doc(id).delete ;
+      }
+      deleteEmploisTemps(id:any){
+        return this.db.collection('emploitemps').doc(id).delete ;
+      }
+      deleteNiveau(id:any){
+        return this.db.collection('niveau').doc(id).delete ;
       }
 }

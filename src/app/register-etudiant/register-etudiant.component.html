@@ -75,14 +75,7 @@
                                     <strong>Filière :</strong>
                                     <select formControlformControlName="Filiere" id="filiere" class="form-control"
                                         required>
-                                        <option value="RGL">Réseau et genie logiciel</option>
-                                        <option value="BF">Banque finance</option>
-                                        <option value="CDM">Communition digitale et web marketing</option>
-                                        <option value="NM">Négociation et multimédia</option>
-                                        <option value="MRH">Managemente des Ressources humaine</option>
-                                        <option value="GTL">Gestion des transports logistique</option>
-                                        <option value="CG">Audit et controle de gestion</option>
-                                        <option value="DECO">Expert Comptable</option>
+                                        <option *ngFor="let filiere of datas" value={{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}} >{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
                                     </select>
                                 </div>
                             </div>
@@ -97,8 +90,9 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <strong>Niveau :</strong>
-                                    <input type="number" formControlName="niv_universitaire" class="form-control"
-                                        required>
+                                        <select formControlName="niv_universitaire" id="niveau" class="form-control" required>
+                                            <option *ngFor="let niveau of datas1" value={{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} >{{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
+                                        </select>
                                 </div>
                             </div>
 

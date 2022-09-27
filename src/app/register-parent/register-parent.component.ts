@@ -50,15 +50,30 @@ export class RegisterParentComponent implements OnInit {
       .createUserWithEmailAndPassword(formValue.mail, this.password)
       if(result){
         this.firebaseService.createParent(this.registerForm.value);
-        this.router.navigate(['scolarite']);
+        this.router.navigate(['listeParent']);
       };
     }catch(error:any){
       window.alert(error.message);
     }
   }
+  public datas:any[]=[];
+  public datas1:any[]=[];
+  public dataSource:any;
+  navbarClass!:string;
+  public disp:string='hide';
+  public etudiants:any=<any>{};
+  public etudiants1:any=<any>{};
 
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.firebaseService.getFiliere().subscribe(
+      res =>(this.datas = res)
+    )
+    
+        
+    this.firebaseService.getNiveau().subscribe(
+      res =>(this.datas1 = res)
+    )
   }
-
+  
 }

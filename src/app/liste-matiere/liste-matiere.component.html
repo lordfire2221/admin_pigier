@@ -4,10 +4,10 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Gestion filières</h4>
+                          <h4 class="card-title">Gestion des Niveaux</h4>
                       </div>
                       <div class="col-4 text-right">
-                          <a routerLink="/registerFiliere" class="btn btn-sm btn-primary">Ajouter Filière</a>
+                          <a routerLink="/registerNiveau" class="btn btn-sm btn-primary">Ajout des niveaux</a>
                       </div>
                   </div>
               </div>
@@ -17,11 +17,15 @@
               <thead class=" text-primary">
                 <tr>
                   <th>Libellé </th>
+                  <th>Filière</th>
+                  <th>Niveau </th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
+                  <td>{{filiere.nom}} </td>
+                  <td>{{filiere.filiere}} </td>
+                  <td>{{filiere.niveau}} </td>
                   <td>
                     <button type="submit" class="ml-2" title="delete"
                         style="border: none; background-color:transparent;"

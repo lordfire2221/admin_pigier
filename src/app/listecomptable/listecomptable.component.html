@@ -28,23 +28,25 @@
               </thead>
               <tbody>
                 <tr *ngFor="let filiere of datas">
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.prenom.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.Filiere.stringValue}} </td>
-                  <td>licence: {{filiere.payload._delegate.doc._document.data.value.mapValue.fields.niveau.numberValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.inscription.stringValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.totaux.numberValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.paye.numberValue}} </td>
-                  <td>{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.restant.numberValue}} </td>
-
-
-
+                  <td>{{filiere.nom}} </td>
+                  <td>{{filiere.prenom}} </td>
+                  <td>{{filiere.Filiere}} </td>
+                  <td>{{filiere.niveau}} </td>
+                  <td>{{filiere.inscription}} </td>
+                  <td>{{filiere.totaux}} </td>
+                  <td>{{filiere.paye}} </td>
+                  <td>{{filiere.restant}} </td>
                   <td>
                     <button type="submit" class="ml-2" title="delete"
                         style="border: none; background-color:transparent;"
                         (click)="delete(filiere.id)">
                         <i class="fas fa-trash fa-lg text-danger">Del</i>
                     </button>
+                  </td>
+                  <td>
+                    <a routerLink="/modifierComptabilite">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>

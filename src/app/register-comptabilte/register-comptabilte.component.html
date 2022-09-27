@@ -42,52 +42,49 @@
                     <div class="form-group">
                         <strong>Filière :</strong>
                         <select formControlformControlName="Filiere" id="filiere" class="form-control" required>
-                            <option value="RGL">Réseau et genie logiciel</option>
-                            <option value="BF">Banque finance</option>
-                            <option value="CDM">Communition digitale et web marketing</option>
-                            <option value="NM">Négociation et multimédia</option>
-                            <option value="MRH">Managemente des Ressources humaine</option>
-                            <option value="GTL">Gestion des transports logistique</option>
-                            <option value="CG">Audit et controle de gestion</option>
-                            <option value="DECO">Expert Comptable</option>
+                            <option *ngFor="let filiere of datas" value={{filiere.payload._delegate.doc._document.data.value.mapValue.fields.abreviation.stringValue}} >{{filiere.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
                         </select>
                     </div>
                 </div>
 
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <strong>Niveau :</strong>
-                        <input type="number" formControlName="niveau" class="form-control"  min="1" max="3">
-                    </div>
-                </div>
+                
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <strong>Niveau de l'étudiant :</strong>
+                                <select formControlName="niveau" id="niveau" class="form-control" required>
+                                    <option *ngFor="let niveau of datas1" value={{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} >{{niveau.payload._delegate.doc._document.data.value.mapValue.fields.nom.stringValue}} </option>
+                                </select>
+                            </div>
+                        </div>  
+                   
 
                 <div class="col-xs-12">
                     <div class="form-group">
                         <strong>Payement totale  :</strong>
                         <select formControlformControlName="inscription" id="choix" class="form-control" required>
-                            <option value="soldé">Soldé</option>
-                            <option value="insoldé">insoldé</option>
+                            <option value="solde">Soldé</option>
+                            <option value="insolde">insoldé</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
                         <strong>Frais totaux   :</strong>
-                        <input type="number" formControlName="totaux" class="form-control" required>
+                        <input type="text" formControlName="totaux" class="form-control" required>
                     </div>
                 </div>
                 
                 <div class="col-xs-12">
                     <div class="form-group">
                         <strong>Frais soldé  :</strong>
-                        <input type="number" formControlName="paye" class="form-control" required>
+                        <input type="text" formControlName="paye" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="col-xs-12">
                     <div class="form-group">
                         <strong>Frais restant  :</strong>
-                        <input type="number" formControlName="restant" class="form-control" required>
+                        <input type="text" formControlName="restant" class="form-control" required>
                     </div>
                 </div>
 

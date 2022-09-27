@@ -46,15 +46,38 @@ export class RegisterEmploiTempsComponent implements OnInit {
     .then(
       (res: any) => {
         if (res)
-        this.router.navigate(['direction']);
+        this.router.navigate(['listeEmploisTemps']);
         else
         this.router.navigate(['registerEmploiTemps']);
       }
     )
    }
 
-  ngOnInit(): void {
+   public datas:any[]=[];
+   public datas1:any[]=[];
+   public datas2:any[]=[]
+   public dataSource:any;
+   navbarClass!:string;
+   public disp:string='hide';
+   public etudiants:any=<any>{};
+   public etudiants1:any=<any>{};
+ 
+ 
+   ngOnInit(){
+     this.firebaseService.getFiliere().subscribe(
+       res =>(this.datas = res)
+     )
+     
+         
+     this.firebaseService.getNiveau().subscribe(
+       res =>(this.datas1 = res)
+     )
+     this.firebaseService.getMatiere().subscribe(
+      res =>(this.datas2 = res)
+    )
   }
+  
+   }
+   
 
 
-}

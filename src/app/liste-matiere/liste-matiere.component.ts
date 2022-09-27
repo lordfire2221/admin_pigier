@@ -32,6 +32,6 @@ export class ListeMatiereComponent implements OnInit {
     )
   }
   delete(id:number){
-    this.firebaseService.deleteFiliere(id)
+    this.firebaseService.deleteMatiere(id)
   }
 }

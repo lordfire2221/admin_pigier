@@ -39,7 +39,7 @@ export class RegisterFiliereComponent implements OnInit {
     .then(
       (res: any) => {
         if (res)
-        this.router.navigate(['direction']);
+        this.router.navigate(['listeFiliere']);
         else
         this.router.navigate(['registerFiliere']);
       }

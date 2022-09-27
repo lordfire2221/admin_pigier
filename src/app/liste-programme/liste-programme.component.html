@@ -4,10 +4,10 @@
       <div class="card-header">
                   <div class="row">
                       <div class="col-8">
-                          <h4 class="card-title">Gestion des Etudiants</h4>
+                          <h4 class="card-title">Gestion des Programmes</h4>
                       </div>
                       <div class="col-4 text-right">
-                          <a routerLink="/registerEtudiant" class="btn btn-sm btn-primary">Ajouter un étudiant</a>
+                          <a routerLink="/registerProgramme" class="btn btn-sm btn-primary">Ajouter un programme</a>
                       </div>
                   </div>
               </div>
@@ -34,7 +34,12 @@
                         (click)="delete(programme.id)">
                         <i class="fas fa-trash fa-lg text-danger">Del</i>
                     </button>
-
+                  </td>
+                  <td>
+                    <a routerLink="/modifierProgramme">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </table>
